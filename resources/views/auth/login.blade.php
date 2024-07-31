@@ -31,7 +31,7 @@
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
-            <span class="fs-6 d-flex lign-items-start"><a>register?</a></span>
+            <span class="fs-6 d-flex lign-items-start"><a href="#" class="text-decoration-none">register?</a></span>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
