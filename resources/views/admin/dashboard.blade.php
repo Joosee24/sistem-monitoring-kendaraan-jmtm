@@ -27,24 +27,52 @@
         border:none;
         box-shadow: none;
     }
-    /* @media (min-width: 768px) {
-        .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .dropdown-menu {
+        z-index: 1050; /* Ensure higher z-index for dropdown */
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    .dropdown {
+        position: relative; /* Ensure relative positioning for dropdown */
+    }
+    /* .navbar-nav {
+    display: none;
+    } */
+
+
+    @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+    display: block;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Change to column on smaller screens */
+        /* padding:0; */
     }
 
     .row {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+        width: 100%;
+        margin:0;
     }
-    } */
 
+    .use{
+       position: relative;
+       right: 16px;
+    }
+
+
+    .col {
+        margin-bottom: 1rem; /* Add some space between columns */
+    }
+}
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg shadow-lg d-flex flex-row" style="color:#FFD700; background:#004B87">
+    <nav class="navbar navbar-expand-lg shadow-lg d-flex flex-row " style="color:#FFD700; background:#004B87">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,17 +89,16 @@
                 </li>
             </ul>
         </div>
-        <div class="d-flex flex-row me-2">
+        <div class="d-flex flex-row me-2 ">
             <h1 class="fs-1">Wel<span class="fs-1 text-light">come</span></h1>
         </div>
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col mt-4 me-3 p-0 z-1 bg-secondary">
-                <div class="border border-2 border-warning d-flex flex-row align-items-center">
+            <div class="col mt-4 me-3 p-0 bg-secondary position-relative">
+                <div class=" border border-2 border-warning d-flex flex-row align-items-center">
                 <img src="/asset/ikon_mobil.png" style="width: 150px; height:150px;" class="z-2">
                <h2 class="fs-4 fw-bold ms-5" style="color:#FFD700;"> <span class="fs-4 fw-bold text-light">Pilih </span>Kendaraan</h2>
-               {{-- tempat dropdown --}}
                <div class="dropdown">
                 <a class="btn  p-0 fs-3 border-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-caret-down-fill text-white ms-3"></i> <!-- Ganti dengan ikon yang sesuai -->
@@ -85,7 +112,7 @@
               </div>
                 </div>
             </div>
-            <div class="col mt-4 ms-3 p-0 z-1 bg-secondary">
+            <div class="use col mt-4 ms-3 p-0 bg-secondary position-relative">
                 <div class="border border-2 border-warning">
                 <h3 class="fs-4 text-center text-light">Masih Belum Tau</h3>
                 </div>
