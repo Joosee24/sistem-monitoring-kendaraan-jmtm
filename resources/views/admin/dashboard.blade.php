@@ -35,11 +35,14 @@
         z-index: 1;
     }
     .dropdown {
-        position: relative; /* Ensure relative positioning for dropdown */
+        position: relative;
     }
-    /* .navbar-nav {
-    display: none;
-    } */
+    .vehicle-image {
+        width: 500px;
+        height: 450px;
+        object-fit: contain;
+    }
+
 
 
     @media (min-width: 992px) {
@@ -82,7 +85,7 @@
                     <a class="nav-link text-light" href="#"><i class="bi bi-house-fill"></i><span class="ms-2">Home</span> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ms-2 fs-5">
-                    <a class="nav-link text-light" href="#"><i class="bi bi-clipboard2-fill"></i><span class="ms-2">Input</span></a>
+                    <a class="nav-link text-light" href="http://127.0.0.1:8000/input"><i class="bi bi-clipboard2-fill"></i><span class="ms-2">Input</span></a>
                 </li>
                 <li class="nav-item ms-2 fs-5">
                     <a class="nav-link text-light" href="#">Pricing</a>
@@ -118,8 +121,41 @@
                 </div>
             </div>
         </div>
+        <div class="image-wrapper">
+        <img id="vehicleImage"src="/asset/brv.png" class="vehicle-image z-2">
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownItems = document.querySelectorAll('.dropdown-item');
+            var vehicleImage = document.getElementById('vehicleImage');
+
+            dropdownItems.forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    var vehicle = event.target.textContent.trim().toLowerCase();
+                    var imagePath = '';
+
+                    switch(vehicle) {
+                        case 'inova':
+                            imagePath = '/asset/inova.png';
+                            break;
+                        case 'brv':
+                            imagePath = '/asset/brv.png';
+                            break;
+                        case 'fortuner':
+                            imagePath = '/asset/fortuner.png';
+                            break;
+                        default:
+                            imagePath = '/asset/default_image.png'; // Gambar default jika diperlukan
+                    }
+
+                    vehicleImage.src = imagePath;
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

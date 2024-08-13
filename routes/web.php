@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\InputController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/register', [AdminController::class, 'showRegistrationForm'])->name('admin.register');
     Route::post('/admin/register', [AdminController::class, 'register'])->name('admin.register.post');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+
+    Route::get('/input', function () {
+        return view('input');
+    });
+    Route::get('/input', [InputController::class, 'showForm']);
+    Route::post('/input', [InputController::class, 'processForm']);
 });
